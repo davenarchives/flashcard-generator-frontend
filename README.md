@@ -7,6 +7,9 @@ The FastAPI backend handles PDF and text file uploads, extracts and summarizes c
 The Next.js frontend consumes this data to deliver a polished, responsive interface where users can review, flip, and track their progress through dynamically generated study cards.
 
 Flashcards are parsed, stored locally in the browser, and presented in a clean, intuitive workflow — making studying efficient, engaging, and powered by generative AI.
+## SCREENSHOTS
+![alt text](image.png)
+![alt text](image-1.png)
 
 ## Overview
 - Upload lecture notes or study guides in PDF/TXT format.
