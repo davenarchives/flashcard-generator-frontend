@@ -292,7 +292,7 @@ export default function Home() {
     formData.append("file", file);
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/summarize", formData, {
+      const res = await axios.post("https://flashcard-generator-backend-bgym.onrender.com/summarize", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
