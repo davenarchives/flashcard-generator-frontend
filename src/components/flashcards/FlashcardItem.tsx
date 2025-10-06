@@ -38,29 +38,29 @@ export function FlashcardItem({ card, onToggleLearned }: FlashcardItemProps) {
         onKeyDown={handleKeyDown}
       >
         <div className="flashcard-face front bg-slate-100 p-6 shadow-lg">
-          <div className="flex h-full flex-col justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                Question
-              </p>
-              <p className="mt-3 whitespace-pre-line text-base font-medium text-slate-900">
+          <div className="flex h-full flex-col gap-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+              Question
+            </p>
+            <div className="flex flex-1 items-center justify-center px-4 text-center">
+              <p className="whitespace-pre-line text-xl font-medium text-slate-900">
                 {card.question}
               </p>
             </div>
-            <p className="mt-6 text-xs text-slate-400">Click to reveal the answer</p>
+            <p className="text-xs text-slate-400 text-center">Click to reveal the answer</p>
           </div>
         </div>
         <div className="flashcard-face back bg-blue-600 p-6 text-white shadow-lg">
-          <div className="flex h-full flex-col justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-100">
-                Answer
-              </p>
-              <p className="mt-3 whitespace-pre-line text-base font-medium">
+          <div className="flex h-full flex-col gap-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-100">
+              Answer
+            </p>
+            <div className="flex flex-1 items-center justify-center px-4 text-center">
+              <p className="whitespace-pre-line text-xl font-medium">
                 {card.answer}
               </p>
             </div>
-            <p className="mt-6 text-xs text-blue-100">Click to go back</p>
+            <p className="text-xs text-blue-100 text-center">Click to go back</p>
           </div>
         </div>
       </div>
