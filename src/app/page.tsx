@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
   FlashcardSet,
@@ -9,6 +10,7 @@ import {
   createId,
   parseFlashcards,
 } from "@/lib/flashcards";
+import { byPrefixAndName } from "@/lib/fontawesome";
 import { useFlashcardSets } from "@/hooks/useFlashcardSets";
 import { FlashcardImportsList } from "@/components/flashcards/FlashcardImportsList";
 import { FlashcardStudyPanel } from "@/components/flashcards/FlashcardStudyPanel";
@@ -118,7 +120,12 @@ export default function Home() {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-12">
         <header className="flex flex-col gap-2 text-center sm:flex-row sm:items-end sm:justify-between sm:text-left">
           <div>
-            <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">PDFLASHGEN</h1>
+            <h1 className="flex items-center gap-3 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+              <FontAwesomeIcon icon={byPrefixAndName.fas["bolt-lightning"]} />
+              <span>
+                <span className="text-[#FA0F00]">PDF</span>LASHGEN
+              </span>
+            </h1>
             <p className="mt-1 max-w-xl text-sm text-slate-600 sm:text-base">
               Import course PDFs and turn them into interactive flashcards you can study and track.
             </p>

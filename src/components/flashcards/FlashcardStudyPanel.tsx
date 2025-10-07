@@ -1,10 +1,13 @@
-﻿import {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
   Flashcard,
   FlashcardSet,
   formatImportDate,
   getCardCountLabel,
   getSetMonogram,
 } from "@/lib/flashcards";
+import { byPrefixAndName } from "@/lib/fontawesome";
 import { FlashcardItem } from "@/components/flashcards/FlashcardItem";
 
 type FlashcardStudyPanelProps = {
@@ -36,6 +39,22 @@ export function FlashcardStudyPanel({
   onPrevious,
   onNext,
 }: FlashcardStudyPanelProps) {
+  const handleClearClick = () => {
+    if (!selectedSet) {
+      return;
+    }
+
+    const confirmed = window.confirm(
+      `Are you sure you want to clear all flashcards from "${selectedSet.name}"?`,
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    onClearSelected();
+  };
+
   return (
     <section className="flex flex-col gap-6 rounded-3xl bg-white/95 p-6 shadow-2xl backdrop-blur">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -57,15 +76,17 @@ export function FlashcardStudyPanel({
         </div>
         <button
           type="button"
-          onClick={onClearSelected}
+          onClick={handleClearClick}
           disabled={!selectedSet}
-          className={`self-start rounded-xl border px-4 py-2 text-sm font-semibold transition ${
+          className={`self-start flex h-11 w-11 items-center justify-center rounded-full border text-base transition ${
             !selectedSet
               ? "cursor-not-allowed border-slate-200 bg-slate-100 text-slate-400"
               : "border-slate-300 bg-white text-slate-600 hover:bg-slate-100"
           }`}
+          aria-label="Clear All"
+          title="Clear All"
         >
-          Clear All
+          <FontAwesomeIcon icon={byPrefixAndName.fal.trash} />
         </button>
       </div>
 

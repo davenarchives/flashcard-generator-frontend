@@ -1,6 +1,9 @@
-﻿"use client";
+"use client";
 
 import { ChangeEvent, DragEvent, KeyboardEvent, ReactNode, useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { byPrefixAndName } from "@/lib/fontawesome";
 
 type FlashcardUploaderProps = {
   loading: boolean;
@@ -127,6 +130,10 @@ export function FlashcardUploader({
               : "border-slate-300 bg-white/70 text-slate-500 hover:border-blue-400 hover:bg-blue-50/60"
           }`}
         >
+          <FontAwesomeIcon
+            icon={byPrefixAndName.fal["cloud-arrow-up"]}
+            className="text-3xl text-blue-500"
+          />
           <span className="text-sm font-semibold">Drag & drop your PDF</span>
           <span className="text-xs text-slate-400">or click to browse</span>
           {file ? (

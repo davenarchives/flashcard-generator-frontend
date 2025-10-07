@@ -1,4 +1,7 @@
-﻿import { FlashcardSet, formatImportDate, getCardCountLabel } from "@/lib/flashcards";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { byPrefixAndName } from "@/lib/fontawesome";
+import { FlashcardSet, formatImportDate, getCardCountLabel } from "@/lib/flashcards";
 
 type FlashcardImportsListProps = {
   sets: FlashcardSet[];
@@ -36,12 +39,19 @@ export function FlashcardImportsList({ sets, selectedSet, onSelectSet }: Flashca
               }`}
               title={set.name}
             >
-              <div>
-                <p className="text-sm font-semibold text-slate-900">{set.name}</p>
-                <p className="text-xs text-slate-400">{formatImportDate(set.importedAt)}</p>
+              <div className="flex items-center gap-3">
+                <FontAwesomeIcon
+                  icon={byPrefixAndName.fas["file-pdf"]}
+                  className="text-lg text-slate-500"
+                />
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">{set.name}</p>
+                  <p className="text-xs text-slate-400">{formatImportDate(set.importedAt)}</p>
+                </div>
               </div>
-              <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500">
+              <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500">
                 {getCardCountLabel(set.cards.length)}
+                <FontAwesomeIcon icon={byPrefixAndName.fal["arrow-right"]} />
               </span>
             </button>
           );
