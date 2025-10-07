@@ -1,5 +1,12 @@
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { faBoltLightning, faFilePdf, faArrowRight, faCloudArrowUp, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBoltLightning,
+  faFilePdf,
+  faArrowRight,
+  faCloudArrowUp,
+  faTrash,
+  faDownload,
+} from "@fortawesome/free-solid-svg-icons";
 
 type FontAwesomePrefix = "fas" | "fal";
 
@@ -11,6 +18,7 @@ export const byPrefixAndName: IconLookupMap = {
   fas: {
     "bolt-lightning": faBoltLightning,
     "file-pdf": faFilePdf,
+    download: faDownload,
   },
   fal: {
     "arrow-right": faArrowRight,
