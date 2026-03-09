@@ -2,7 +2,7 @@
 
 A full-stack AI-powered flashcard generator that transforms uploaded notes into interactive study materials.
 
-The FastAPI backend handles PDF and text file uploads, extracts and summarizes content using the Gemini API, and returns concise question-and-answer pairs as structured flashcards.
+The FastAPI backend handles PDF and text file uploads, extracts and summarizes content using the Groq API, and returns concise question-and-answer pairs as structured flashcards.
 
 The Next.js frontend consumes this data to deliver a polished, responsive interface where users can review, flip, and track their progress through dynamically generated study cards.
 
@@ -13,7 +13,7 @@ Flashcards are parsed, stored locally in the browser, and presented in a clean, 
 
 ## Overview
 - Upload lecture notes or study guides in PDF/TXT format.
-- Forward the file to the FastAPI backend (`/summarize`) which asks Gemini to produce Q/A pairs.
+- Forward the file to the FastAPI backend (`/summarize`) which asks the model API to produce Q/A pairs.
 - Parse the AI response into structured `{ question, answer }` flashcards while removing duplicates.
 - Persist the resulting deck locally so learners can return and continue where they left off.
 - Review cards one by one with a 3D flip animation, mark items as learned, and track progress across sessions.
@@ -28,7 +28,7 @@ Flashcards are parsed, stored locally in the browser, and presented in a clean, 
 - **Progress controls**: Learned counter, percentage bar, and �Clear All� to reset the deck.
 
 ## Core Functions & Components
-- `parseFlashcards(raw: string)` - converts Gemini text into structured flashcards.
+- `parseFlashcards(raw: string)` - converts model output text into structured flashcards.
 - `mergeFlashcards(existing, incoming)` - merges new cards with dedupe handling and learned-state preservation.
 - `FlashcardItem` component - renders the front/back faces, flip animation, and learned toggle button.
 - `Home` page - orchestrates upload, state management, persistence, and the review experience.
@@ -42,7 +42,7 @@ Flashcards are parsed, stored locally in the browser, and presented in a clean, 
 
 ### Backend (companion service)
 - FastAPI (Python)
-- Gemini API client (via Google Generative AI SDK)
+- Groq API client (OpenAI-compatible SDK)
 - PyPDF / text processing utilities for document ingestion
 
 ## Getting Started
